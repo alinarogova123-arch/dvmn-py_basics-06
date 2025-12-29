@@ -1,39 +1,40 @@
-PASSWORD = input('Введите пароль: ')
+password = input('Введите пароль: ')
 
-PASSWORD_LIST = list(PASSWORD)
-
-
-def has_digit(PASSWORD):
-    return any(symbol.isdigit() for symbol in PASSWORD_LIST)
+password_list = list(password)
 
 
-def has_letters(PASSWORD):
-    return any(symbol.isalpha() for symbol in PASSWORD_LIST)
+def has_digit(password):
+    return any(symbol.isdigit() for symbol in password_list)
 
 
-def has_upper_letters(PASSWORD):
-    return any(symbol.isupper() for symbol in PASSWORD_LIST)
+def has_letters(password):
+    return any(symbol.isalpha() for symbol in password_list)
 
 
-def has_lower_letters(PASSWORD):
-    return any(symbol.islower() for symbol in PASSWORD_LIST)
+def has_upper_letters(password):
+    return any(symbol.isupper() for symbol in password_list)
 
 
-def is_very_long(PASSWORD):
-    return len(PASSWORD) > 12
+def has_lower_letters(password):
+    return any(symbol.islower() for symbol in password_list)
 
 
-def has_symbols(PASSWORD):
-    return any(len(PASSWORD) > 0 and not symbol.isalpha() and not symbol.isdigit() for symbol in PASSWORD_LIST)
+def is_very_long(password):
+    return len(password) > 12
+
+
+def has_symbols(password):
+    return any(len(password) > 0 and not symbol.isalpha() and not symbol.isdigit() for symbol in password_list)
 
 
 def main():
     password_raiting = [
-        has_digit(PASSWORD),
-        is_very_long(PASSWORD),
-        has_lower_letters(PASSWORD),
-        has_upper_letters(PASSWORD),
-        has_symbols(PASSWORD)
+        has_digit(password),
+        has_letters(password),
+        is_very_long(password),
+        has_lower_letters(password),
+        has_upper_letters(password),
+        has_symbols(password)
     ]
 
     score = 0
@@ -47,3 +48,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
